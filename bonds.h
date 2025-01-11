@@ -15,3 +15,8 @@ double AnnuityValue(double AnnuityAmount, double AmountOfPeriods, double rate, d
 	double Sum = GeoR * (1 - pow(GeoR, AmountOfPeriods)) / (1 - GeoR);
 	return AnnuityAmount * Sum;
 }
+
+double CompoundInterestContinuous(double principal, double rate, double time)
+{
+	return principal * exp(rate * time);
+}
