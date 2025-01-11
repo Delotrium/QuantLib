@@ -38,3 +38,18 @@ void runAnnuityValue()
 	cin >> PeriodPerYear;
 	cout << "The annuity value is: $" << AnnuityValue(AnnuityAmount, AmountOfPeriods, rate, PeriodPerYear) << endl;
 }
+
+void RunCompoundContinous()
+{
+	double principal;
+	double rate;
+	double time;
+	cout << "Enter the principal amount: ";
+	cin >> principal;
+	cout << "Enter the rate: ";
+	cin >> rate;
+	cout << "Enter the time: ";
+	cin >> time;
+	double interestAm = CompoundInterestContinuous(principal, rate, time);
+	cout << "The total return is: $" << interestAm << endl << "Interest amount: $" << interestAm - principal << endl << "Return: " << (100*(interestAm - principal)) / principal << "%" << endl;
+}
