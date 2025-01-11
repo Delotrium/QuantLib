@@ -6,6 +6,6 @@
 
 int main()
 {
-	runAnnuityValue();
+	RunCompoundContinous(); //Choose the function you want to run
 	return 0;
 }
