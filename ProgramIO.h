@@ -3,6 +3,7 @@
 #include <string>
 #include <cmath>
 #include "bonds.h"
+#include "Interest.h"
 
 using namespace std;
 void runZeroCouponBond()
@@ -52,4 +53,59 @@ void RunCompoundContinous()
 	cin >> time;
 	double interestAm = CompoundInterestContinuous(principal, rate, time);
 	cout << "The total return is: $" << interestAm << endl << "Interest amount: $" << interestAm - principal << endl << "Return: " << (100*(interestAm - principal)) / principal << "%" << endl;
+}
+
+void RunCompoundPeriod()
+{
+	double princpal;
+	double rate;
+	double Periods;
+	double PeriodPerYear;
+	cout << "Enter the principal amount: $";
+	cin >> princpal;
+	cout << "Enter the rate p.a: ";
+	cin >> rate;
+	cout << "Enter the amount of periods: ";
+	cin >> Periods;
+	cout << "Enter the amount of periods per year: ";
+	cin >> PeriodPerYear;
+	double interestAm = CompoundInterestPeriodic(princpal, rate, Periods, PeriodPerYear);
+	cout << "The total return is: $" << interestAm << endl << "Interest amount: $" << (interestAm - princpal) << endl << "Return: " << (100 * (interestAm - princpal)) / princpal << "%" << endl;
+
+}
+
+void RunSimpleInterest()
+{
+	double principal;
+	double rate;
+	double time;
+	cout << "Enter the principal amount: ";
+	cin >> principal;
+	cout << "Enter the rate: ";
+	cin >> rate;
+	cout << "Enter the time: ";
+	cin >> time;
+	double interestAm = SimpleInterest(principal, rate, time);
+	cout << "The total return is: $" << interestAm << endl << "Interest amount: $" << interestAm - principal << endl << "Return: " << (100 * (interestAm - principal)) / principal << "%" << endl;
+}
+
+void CompareInterestTypes()
+{
+	double principal;
+	double rate;
+	double time;
+	double CompoundPeriodicPeriodsPerYear;
+	cout << "Enter the principal amount: ";
+	cin >> principal;
+	cout << "Enter the rate: ";
+	cin >> rate;
+	cout << "Enter the time: ";
+	cin >> time;
+	cout << "Enter the amount of periods per year: ";
+	cin >> CompoundPeriodicPeriodsPerYear;
+	double interestAm = SimpleInterest(principal, rate, time);
+	double CompoundInterest = CompoundInterestContinuous(principal, rate, time);
+	double CompoundPeriodic = CompoundInterestPeriodic(principal, rate, time, CompoundPeriodicPeriodsPerYear);
+	cout << "Simple Interest: $" << interestAm << endl << "Compound Interest: $" << CompoundInterest << endl << "Compound Periodic Interest: $" << CompoundPeriodic << endl;
+	cout << "Simple Interest Return: " << (100 * (interestAm - principal)) / principal << "%" << endl << "Compound Interest Return: " << (100 * (CompoundInterest - principal)) / principal << "%" << endl << "Compound Periodic Interest Return: " << (100 * (CompoundPeriodic - principal)) / principal << "%" << endl;
 }
