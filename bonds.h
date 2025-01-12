@@ -16,7 +16,3 @@ double AnnuityValue(double AnnuityAmount, double AmountOfPeriods, double rate, d
 	return AnnuityAmount * Sum;
 }
 
-double CompoundInterestContinuous(double principal, double rate, double time)
-{
-	return principal * exp(rate * time);
-}
