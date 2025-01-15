@@ -3,7 +3,6 @@
 #include <cmath>
 
 
-
 double ZeroCouponBond(double faceValue, double rate, double time, double maturity)
 {
 	return faceValue / pow(1 + rate, maturity - time);

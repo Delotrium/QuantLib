@@ -1,8 +1,6 @@
 #pragma once
 
 #include <cmath>
-#include <iostream>
-
 double CompoundInterestContinuous(double principal, double rate, double time)
 {
 	return principal * exp(rate * time);
@@ -15,5 +13,5 @@ double CompoundInterestPeriodic(double principal, double rate, double Periods, d
 
 double SimpleInterest(double principal, double rate, double time)
 {
-	return (principal * ((rate) * time))+principal;
+	return (principal * ((rate)*time)) + principal;
 }

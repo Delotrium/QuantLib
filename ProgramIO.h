@@ -1,9 +1,10 @@
 #pragma once
 #include <iostream>
 #include <string>
-#include <cmath>
-#include "bonds.h"
 #include "Interest.h"
+#include "BasicProbabilityFunctions.h"
+#include "bonds.h"
+
 
 using namespace std;
 void runZeroCouponBond()
@@ -108,4 +109,35 @@ void CompareInterestTypes()
 	double CompoundPeriodic = CompoundInterestPeriodic(principal, rate, time, CompoundPeriodicPeriodsPerYear);
 	cout << "Simple Interest: $" << interestAm << endl << "Compound Interest: $" << CompoundInterest << endl << "Compound Periodic Interest: $" << CompoundPeriodic << endl;
 	cout << "Simple Interest Return: " << (100 * (interestAm - principal)) / principal << "%" << endl << "Compound Interest Return: " << (100 * (CompoundInterest - principal)) / principal << "%" << endl << "Compound Periodic Interest Return: " << (100 * (CompoundPeriodic - principal)) / principal << "%" << endl;
+}
+
+void RunBinomPDF()
+{
+	double n;
+	double k;
+	double p;
+	cout << "Enter the number of trials: ";
+	cin >> n;
+	cout << "Enter the number of successes: ";
+	cin >> k;
+	cout << "Enter the probability of success: ";
+	cin >> p;
+	cout << "The probability of " << k << " successes in " << n << " trials is: " << BinomPDF(p, n, k) << endl;
+}
+
+void RunBinomCDF()
+{
+	double n;
+	double lowerLimit;
+	double upperLimit;
+	double p;
+	cout << "Enter the number of trials: ";
+	cin >> n;
+	cout << "Enter the lower limit: ";
+	cin >> lowerLimit;
+	cout << "Enter the upper limit: ";
+	cin >> upperLimit;
+	cout << "Enter the probability of success: ";
+	cin >> p;
+	cout << "The probability of " << lowerLimit << " to " << upperLimit << " successes in " << n << " trials is: " << BinomCDF(p, n, lowerLimit, upperLimit) << endl;
 }
