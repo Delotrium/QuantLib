@@ -3,7 +3,7 @@
 #include <cmath>
 #include <string>
 #include "ProgramIO.h"
-
+#include "Depreciation.h"
 
 
 
@@ -11,7 +11,7 @@
 
 int main()
 {
-	std::cout <<  CompoundAnnualGrowthRate(1000000,1200000,5,0); //Choose the function you want to run
+	std::cout <<  DecliningBalanceDepreciationTotal(75000, 2, 0.15); //Choose the function you want to run
 	return 0;
 }
 
