@@ -45,3 +45,13 @@ double Kurtosis(std::vector<double>values)
 	}
 	return skew * coeff - 3;
 }
+
+std::vector<double> DistributionAnalysisSimple(std::vector<double>values)
+{
+	std::vector<double>results;
+	results.push_back(ArithmeticMean(values));
+	results.push_back(StandardDeviatonSample(values));
+	results.push_back(Skew(values));
+	results.push_back(Kurtosis(values));
+	return results;
+}
