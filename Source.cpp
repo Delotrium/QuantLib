@@ -4,14 +4,15 @@
 #include <string>
 #include "ProgramIO.h"
 #include "Depreciation.h"
-
+#include "Distributions.h"
 
 
 
 
 int main()
 {
-	std::cout <<  DecliningBalanceDepreciationTotal(75000, 2, 0.15); //Choose the function you want to run
+	std::cout << Skew({ 2,2,3,4,5 }) << std::endl;
+	std::cout << Kurtosis({ 2,2,3,4, 5 }); //Choose the function you want to run
 	return 0;
 }
 
