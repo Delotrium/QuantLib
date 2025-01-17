@@ -32,13 +32,25 @@ namespace QuantEngine
 		return values;
 	}
 
-	std::vector<double> generate_points(double lowerLimit, double upperLimit, double amount)
+	std::vector<double> generate_points(double lowerLimit, double upperLimit, double amount, int mode)
 	{
 		std::vector<double> values;
 		int i = 0;
+		double step = (upperLimit - lowerLimit) / amount;
 		while (i < amount)
 		{
-			values.push_back(QuantLib::rng(lowerLimit, upperLimit));
+			switch (mode)
+			{
+			case 1:
+				values.push_back(lowerLimit+(i*step));
+				break;
+			case 2:
+				values.push_back(upperLimit - (i*step));
+				break;
+			default:
+				values.push_back(QuantLib::rng(lowerLimit, upperLimit));
+				break;
+			}
 			i++;
 		}
 		return values;
