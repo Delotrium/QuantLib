@@ -1,5 +1,5 @@
 #include <iostream>
-#include "QuantLib.h"
+#include "../QuantLib/QuantLib.h"
 #include "QuantEngine.h"
 
 namespace QuantEngine

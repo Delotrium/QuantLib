@@ -1,5 +1,5 @@
 #pragma once
-#include "QuantLib.h"
+#include "../QuantLib/QuantLib.h"
 
 namespace QuantEngine
 {
