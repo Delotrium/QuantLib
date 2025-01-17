@@ -1,14 +1,21 @@
 #include <iostream>
-#include "QuantLib.h"
-
+#include "QuantLib/QuantLib.h"
+#include "QuantEngine/QuantEngine.h"
 
 
 
 int main()
 {
-	std::vector<double> values = { 1,2,3,3,4,5,3,1,1,1,5,2,3,1,2,3,4,5,5,4,3,2,1,2,3,2,2,1,1 };//Choose the function you want to run
-	std::vector<double> results = QuantLib::DistributionAnalysisSimple(values);
-	std::cout << "Arithmetic Mean: " << results[0] << std::endl << "Standard Deviation: " << results[1] << std::endl << "Skew: " << results[2] << std::endl << "Kurtosis: " << results[3] << std::endl;
+	int i = 0;
+	while (i < 20)
+	{
+		std::cout << "Trial: " << i << std::endl;
+		std::cout << "****************************************************************" << std::endl;
+		QuantEngine::analysis(QuantEngine::generate_points(0, 100, 500));
+		std::cout << "****************************************************************" << std::endl << "\n\n\n";
+		i++;
+	}
 	return 0;
+
 }
 
