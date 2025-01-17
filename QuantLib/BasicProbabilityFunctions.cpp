@@ -1,5 +1,6 @@
 #include <cmath>
 #include <vector>
+#include <random>
 #include "QuantLib.h"
 #include "basicProbabilityFunctions.h"
 namespace QuantLib
@@ -127,5 +128,12 @@ namespace QuantLib
 	double CompoundAnnualGrowthRate(double initValue, double endValue, double initTime, double endTime)
 	{
 		return (pow(endValue / initValue, 1 / (endTime, initTime))) - 1;
+	}
+	double rng(double lowerLimit, double upperLimit)
+	{
+		std::random_device rd;
+		std::mt19937 gen(rd());
+		std::uniform_real_distribution<> dis(lowerLimit, upperLimit);
+		return dis(gen);
 	}
 }
