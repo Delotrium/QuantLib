@@ -2,7 +2,7 @@
 
 #include <cmath>
 
-double ReturnAmount(double currPrice, double prevPrice)
+namespace QuantLib
 {
-	return (currPrice - prevPrice) / (currPrice);
+	double ReturnAmount(double currPrice, double prevPrice);
 }

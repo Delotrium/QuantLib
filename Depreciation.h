@@ -1,21 +1,11 @@
 #pragma once
 
-#include <cmath>
+
 #include <vector>
 
-double StraightLineDepreciationAmount(double InitialValue, double FinalValue, double UsefulLife)
+namespace QuantLib
 {
-	return (InitialValue - FinalValue) / UsefulLife;
-}
-
-std::vector < double> StraightLineDepreciationTotal(double initialValue, double FinalValue, double UsefulLife, double Time)
-{
-	double depr = StraightLineDepreciationAmount(initialValue, FinalValue, UsefulLife) * Time;
-	return std::vector<double>(depr, initialValue-depr);
-}
-
-double DecliningBalanceDepreciationTotal(double InitialValue, double Time, double Rate)
-{
-	double depr = (InitialValue) * (pow(1 - Rate, Time));
-	return depr;
+	double StraightLineDepreciationAmount(double InitialValue, double FinalValue, double UsefulLife);
+	std::vector < double> StraightLineDepreciationTotal(double initialValue, double FinalValue, double UsefulLife, double Time);
+	double DecliningBalanceDepreciationTotal(double InitialValue, double Time, double Rate);
 }
