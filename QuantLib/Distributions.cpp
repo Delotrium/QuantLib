@@ -17,7 +17,7 @@ namespace QuantLib
 		return GausDst;
 	}
 
-	double Skew(std::vector<double>values)
+	double Skew(const std::vector<double>& values)
 	{
 		double mean = ArithmeticMean(values);
 		double sd = StandardDeviatonSample(values);
@@ -32,7 +32,7 @@ namespace QuantLib
 		return skew * coeff;
 	}
 
-	double Kurtosis(std::vector<double>values)
+	double Kurtosis(const std::vector<double>& values)
 	{
 		double mean = ArithmeticMean(values);
 		double sd = StandardDeviatonSample(values);
@@ -47,13 +47,13 @@ namespace QuantLib
 		return skew * coeff - 3;
 	}
 
-	std::vector<double> DistributionAnalysisSimple(std::vector<double>values)
+	std::vector<double> DistributionAnalysisSimple(const std::vector<double>&values)
 	{
 		std::vector<double>results;
-		results.push_back(ArithmeticMean(values));
-		results.push_back(StandardDeviatonSample(values));
-		results.push_back(Skew(values));
-		results.push_back(Kurtosis(values));
+		results.emplace_back(ArithmeticMean(values));
+		results.emplace_back(StandardDeviatonSample(values));
+		results.emplace_back(Skew(values));
+		results.emplace_back(Kurtosis(values));
 		return results;
 	}
 }

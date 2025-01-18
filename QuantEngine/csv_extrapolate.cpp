@@ -20,7 +20,7 @@ namespace QuantEngine
 			std::string token;
 			while (std::getline(ss, token, ','))
 			{
-				values.push_back(std::stod(token));
+				values.emplace_back(std::stod(token));
 			}
 		}
 		return values;
@@ -42,13 +42,13 @@ namespace QuantEngine
 			switch (mode)
 			{
 			case 1:
-				values.push_back(lowerLimit+(i*step));
+				values.emplace_back(lowerLimit+(i*step));
 				break;
 			case 2:
-				values.push_back(upperLimit - (i*step));
+				values.emplace_back(upperLimit - (i*step));
 				break;
 			default:
-				values.push_back(QuantLib::rng(lowerLimit, upperLimit));
+				values.emplace_back(QuantLib::rng(lowerLimit, upperLimit));
 				break;
 			}
 			i++;

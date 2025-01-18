@@ -41,7 +41,7 @@ namespace QuantLib
 		return CDF;
 	}
 
-	double ExpectedValue(std::vector<double> values, std::vector<double> probabilities)
+	double ExpectedValue(const std::vector<double>& values, const std::vector<double>& probabilities)
 	{
 		int i = 0;
 		double val = 0;
@@ -63,7 +63,7 @@ namespace QuantLib
 		return numTrials * probSucess * (1 - probSucess);
 	}
 
-	double ArithmeticMean(std::vector<double> values)
+	double ArithmeticMean(const std::vector<double>& values)
 	{
 		int i = 0;
 		int val = 0;
@@ -75,7 +75,7 @@ namespace QuantLib
 		return (val / values.size());
 	}
 
-	double VarianceListSample(std::vector<double> values)
+	double VarianceListSample(const std::vector<double>& values)
 	{
 
 		int i = 0;
@@ -89,7 +89,7 @@ namespace QuantLib
 		return val / (values.size() - 1);
 	}
 
-	double VarianceListPop(std::vector<double> values)
+	double VarianceListPop(const std::vector<double>& values)
 	{
 
 		int i = 0;
@@ -103,17 +103,17 @@ namespace QuantLib
 		return val / (values.size());
 	}
 
-	double StandardDeviatonSample(std::vector<double> values)
+	double StandardDeviatonSample(const std::vector<double>& values)
 	{
 		return sqrt(VarianceListSample(values));
 	}
 
-	double StandardDeviatonPop(std::vector<double> values)
+	double StandardDeviatonPop(const std::vector<double>& values)
 	{
 		return sqrt(VarianceListPop(values));
 	}
 
-	double geoMetricMean(std::vector<double> values)
+	double geoMetricMean(const std::vector<double>& values)
 	{
 		int i = 0;
 		double val = 1;

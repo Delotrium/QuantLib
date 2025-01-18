@@ -4,7 +4,7 @@
 
 namespace QuantEngine
 {
-	void analysis(std::vector<double> data)
+	void analysis(const std::vector<double>&data)
 	{
 		
 		double Mean = QuantLib::ArithmeticMean(data);
