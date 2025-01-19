@@ -43,4 +43,46 @@ namespace QuantEngine
 		std::cout << "Data generated and saved to output_data3.csv" << std::endl;
 		std::cout << "Duration: " << duration.count() << " milliseconds" << std::endl;
 	}
+	void GenerateNormalDistributionFromFile(std::string filename, const std::vector<double>& data, double width, int amount)
+	{
+		std::cout << "Generating Gaussian approximation..." << std::endl;
+		auto start = std::chrono::high_resolution_clock::now();
+		double mean = QuantLib::ArithmeticMean(data);
+		double sd = QuantLib::StandardDeviatonSample(data);
+		double i = mean - (sd * width);
+		std::vector<double> values;
+		std::vector<double> x_values;
+		while (i < mean + (sd * width))
+		{
+			values.emplace_back(QuantLib::GaussianDistr(mean, sd, i));
+			x_values.emplace_back(i);
+			i += ((2 *sd * width) / amount);
+		}
+		create_csv(filename, x_values);
+		append_to_csv_line(filename, 2, values);
+		auto stop = std::chrono::high_resolution_clock::now();
+		auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+		std::cout << "Gaussian approximation generated and saved to " << filename << std::endl;
+		std::cout << "Duration: " << duration.count() << " milliseconds" << std::endl;
+	}
+	void GenerateNormalDistribution(std::string filename, double sd, double mean, double width, int amount)
+	{
+		std::cout << "Generating Gaussian approximation..." << std::endl;
+		auto start = std::chrono::high_resolution_clock::now();
+		double i = mean - (sd * width);
+		std::vector<double> values;
+		std::vector<double> x_values;
+		while (i < mean + (sd * width))
+		{
+			values.emplace_back(QuantLib::GaussianDistr(mean, sd, i));
+			x_values.emplace_back(i);
+			i += ((2 * sd * width) / amount);
+		}
+		create_csv(filename, x_values);
+		append_to_csv_line(filename, 2, values);
+		auto stop = std::chrono::high_resolution_clock::now();
+		auto duration = std::chrono::duration_cast<std::chrono::milliseconds>(stop - start);
+		std::cout << "Gaussian approximation generated and saved to " << filename << std::endl;
+		std::cout << "Duration: " << duration.count() << " milliseconds" << std::endl;
+	}
 }
