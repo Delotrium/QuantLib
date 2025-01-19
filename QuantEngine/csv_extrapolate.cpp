@@ -56,5 +56,55 @@ namespace QuantEngine
 		return values;
 
 	}
+	void create_csv(std::string filename, const std::vector<double>& values)
+	{
+		std::ofstream file(filename);
+		for (auto& value : values)
+		{
+			file << value << ",";
+		}
+		file.close();
+	}
+
+	void append_to_csv_line(const std::string& filename, int line_number, const std::vector<double>& values) 
+	{
+		if (line_number < 1) {
+			std::cerr << "Error: Line number must be greater than or equal to 1." << std::endl;
+			return;
+		}
+		std::ifstream infile(filename);
+		if (!infile.is_open()) {
+			std::cerr << "Error: Unable to open file " << filename << std::endl;
+			return;
+		}
+		std::vector<std::string> lines;
+		std::string line;
+		while (std::getline(infile, line)) {
+			lines.push_back(line);
+		}
+		infile.close();
+		while (static_cast<int>(lines.size()) < line_number) {
+			lines.emplace_back(""); 
+		}
+		std::ostringstream oss;
+		if (!lines[line_number - 1].empty()) {
+			oss << lines[line_number - 1] << ",";
+		}
+		for (const auto& value : values) {
+			oss << value << ",";
+		}
+		lines[line_number - 1] = oss.str();
+
+		std::ofstream outfile(filename);
+		if (!outfile.is_open()) {
+			std::cerr << "Error: Unable to write to file " << filename << std::endl;
+			return;
+		}
+		for (const auto& l : lines) {
+			outfile << l << "\n";
+		}
+		outfile.close();
+	}
+
 }
 
