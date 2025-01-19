@@ -9,7 +9,8 @@ This repository contains two distinct C++ programs: QuantLib and QuantEngine. Th
 ## **QuantLib** – A Library for Quantitative Finance Functions
 **QuantLib** is a comprehensive library written in C++ designed to provide statistical and financial functions to support the analysis of financial markets. It includes implementations for various quantitative finance models, ranging from simple statistical functions to other analysis tools and functions.
 
-Key Features:
+**Key Features:**
+
 Statistical Functions: Includes various statistical tools, which can be applied to both financial and non-financial programs
 
 Mathematical Functions: Provides various mathematical functions not included in the native C++ libraries, using optimised and efficient algorithms.
