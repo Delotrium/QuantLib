@@ -8,7 +8,7 @@
 
 int main()
 {
-	QuantEngine::SimpleRandomWalkGenerator();
+	QuantEngine::GenerateNormalDistribution("output_data.csv", 1, 5, 4, 1000);
 	return 0;
 }
 
