@@ -1,7 +1,7 @@
 #include <cmath>
 #include <vector>
 #include "QuantLib.h"
-
+#include <string>
 namespace QuantLib
 {
 	double pi = 3.14159265358979323846;
@@ -47,7 +47,7 @@ namespace QuantLib
 		return skew * coeff - 3;
 	}
 
-	std::vector<double> DistributionAnalysisSimple(const std::vector<double>&values)
+	std::vector<double> DistributionAnalysisSimple(const std::vector<double>& values)
 	{
 		std::vector<double>results;
 		results.emplace_back(ArithmeticMean(values));
