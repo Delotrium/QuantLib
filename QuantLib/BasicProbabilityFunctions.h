@@ -20,4 +20,7 @@ namespace QuantLib
 	double geoMetricMean(const std::vector<double>& values);
 	double CompoundAnnualGrowthRate(double initValue, double endValue, double initTime, double endTime);
 	double rng(double lowerLimit, double upperLimit);
+	double simpleRandomWalk(double negativeValue, double positiveValue, double steps);
+	double chooseNumber(double num1, double num2);
+
 }

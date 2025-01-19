@@ -136,4 +136,22 @@ namespace QuantLib
 		std::uniform_real_distribution<> dis(lowerLimit, upperLimit);
 		return dis(gen);
 	}
+	double chooseNumber(double num1, double num2)
+	{
+		std::random_device rd;
+		std::mt19937 gen(rd()); 
+		std::uniform_int_distribution<int> dist(0, 1); 
+		double result = (dist(gen) == 0) ? num1 : num2;
+		return result;
+	}
+
+	double simpleRandomWalk(double negativeValue, double positiveValue, double steps)
+	{
+		double val = 0;
+		for (int i = 0; i < steps; i++)
+		{
+			val += chooseNumber(negativeValue, positiveValue);
+		}
+		return val;
+	}
 }
