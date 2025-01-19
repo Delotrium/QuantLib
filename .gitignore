@@ -7,3 +7,4 @@
 *.sln
 x64/Debug/Introduction-to-Quant-Finance.exe
 x64/Debug/Introduction-to-Quant-Finance.pdb
+output_data.csv
