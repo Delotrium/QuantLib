@@ -56,4 +56,8 @@ namespace QuantLib
 		results.emplace_back(Kurtosis(values));
 		return results;
 	}
+	double normCDF(double x, double mean, double sd) {
+		double z = (x - mean) / sd;
+		return 0.5 * (1 + std::erf(z / std::sqrt(2)));
+	}
 }
