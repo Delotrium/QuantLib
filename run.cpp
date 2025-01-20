@@ -8,7 +8,8 @@
 
 int main()
 {
-	QuantEngine::GenerateNormalDistribution("output_data.csv", 1, 5, 4, 1000);
+	std::vector<double> inputData = QuantEngine::csv_read("input.csv");
+	QuantEngine::GenerateNormalDistributionFromFile("output_approx.csv", inputData, 4, 1000);
 	return 0;
 }
 
