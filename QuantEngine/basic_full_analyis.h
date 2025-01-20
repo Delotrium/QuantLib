@@ -7,4 +7,5 @@ namespace QuantEngine
 	void SimpleRandomWalkGenerator();
 	void GenerateNormalDistributionFromFile(std::string filename, const std::vector<double>& data, double width, int amount);
 	void GenerateNormalDistribution(std::string filename, double sd, double mean, double width, int amount);
+	void SimpleRandomWalkGeneratorMultiplier();
 }
