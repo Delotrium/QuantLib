@@ -8,8 +8,8 @@
 
 int main()
 {
-	std::vector<double> inputData = QuantEngine::csv_read("input.csv");
-	QuantEngine::GenerateNormalDistributionFromFile("output_approx.csv", inputData, 4, 1000);
+	std::cout << "Calculated Call Price: $" << QuantLib::SimpleBlackScholes(100, 110, 1, 0.05, 0.2, true) << std::endl;
+	std::cout << "Calculated Put Price: $" << QuantLib::SimpleBlackScholes(100, 110, 1, 0.05, 0.2, false) << std::endl;
 	return 0;
 }
 
