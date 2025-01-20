@@ -5,5 +5,6 @@
 #include "Distributions.h"
 #include "Interest.h"
 #include "GenAnalysis.h"
+#include "options.h"
 
 
