@@ -13,16 +13,24 @@ namespace QuantEngine
 	{
 		std::vector<double> values;
 		std::ifstream file(filename);
+		if (!file.is_open()) {
+			std::cerr << "Error: Unable to open file " << filename << std::endl;
+			return values;
+		}
 		std::string line;
-		while (std::getline(file, line))
-		{
+		while (std::getline(file, line)) {
 			std::stringstream ss(line);
-			std::string token;
-			while (std::getline(ss, token, ','))
-			{
-				values.emplace_back(std::stod(token));
+			std::string value;
+			while (std::getline(ss, value, ',')) {
+				try {
+					values.push_back(std::stod(value));
+				}
+				catch (const std::invalid_argument& e) {
+					std::cerr << "Error: Invalid number in file " << filename << std::endl;
+				}
 			}
 		}
+		file.close();
 		return values;
 	}
 
